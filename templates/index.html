@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System | Rithik Mathew</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>User Dashboard</h1>
+            <p>Manage access, updates, and records for all registered system users.</p>
+        </header>
+
+        <div class="main-content">
+            <section class="card">
+                <h2 class="card-title">Add New User</h2>
+                <form id="userForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="Jane Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="jane@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" placeholder="Optional">
+                    </div>
+                    <button type="submit" class="btn-primary">Add User</button>
+                    <div id="formMessage" class="message"></div>
+                </form>
+            </section>
+
+            <section class="card">
+                <h2 class="card-title">System Records</h2>
+                <div class="table-container">
+                    <table id="userTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Age</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userList">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>This page created by Rithik Mathew</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

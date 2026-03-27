@@ -1,0 +1,274 @@
+/* --- Root Variables for Consistent Theme --- */
+:root {
+    /* Colors */
+    --primary: #3b82f6;       /* Blue - Main Action Color */
+    --primary-hover: #2563eb; /* Darker Blue on Hover */
+    --danger: #ef4444;        /* Red - Destructive Action */
+    --danger-hover: #dc2626;  /* Darker Red on Hover */
+    
+    /* Grays */
+    --bg-main: #f3f4f6;       /* Main page background */
+    --bg-card: #ffffff;       /* Card background */
+    --text-main: #111827;     /* Dark gray/black for main text */
+    --text-muted: #6b7280;    /* Light gray for secondary text */
+    --border: #e5e7eb;        /* Consistent border color */
+
+    /* Typography */
+    /* A modern sans-serif stack inspired by Inter/Roboto */
+    --font-stack: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    
+    /* Layout */
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --radius: 8px;            /* Standard border radius */
+    --transition: all 0.2s ease-in-out;
+}
+
+/* --- Global Reset for Professional Consistency --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-stack);
+    -webkit-font-smoothing: antialiased; /* Better font rendering on Macs */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Main Layout --- */
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.5;
+    padding: 2rem;
+    padding-bottom: 4rem; /* Space for the footer */
+    font-size: 16px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Header Section --- */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Main Content Grid --- */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr; /* Form is smaller, Table is larger */
+    gap: 2rem;
+    align-items: start; /* Don't stretch sections vertically */
+}
+
+/* Responsive adjustment for phones */
+@media (max-width: 900px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Card Component --- */
+.card {
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border);
+}
+
+/* --- Form Elements --- */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+/* --- Buttons --- */
+button {
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Action buttons inside the table */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-edit-small {
+    padding: 0.4rem 0.8rem;
+    background-color: #f3f4f6;
+    color: var(--text-main);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+.btn-edit-small:hover {
+    background-color: #e5e7eb;
+}
+
+.btn-delete-small {
+    padding: 0.4rem 0.8rem;
+    background-color: var(--danger);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+.btn-delete-small:hover {
+    background-color: var(--danger-hover);
+}
+
+/* --- Message Styling --- */
+.message {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    min-height: 1.3rem; /* Prevents layout shift */
+}
+
+/* --- Table Styling --- */
+.table-container {
+    overflow-x: auto; /* Required for mobile responsiveness */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+/* Header Cells */
+th {
+    background-color: #fafafa;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-align: left;
+    padding: 1rem 1.5rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--border);
+}
+
+/* Body Cells */
+td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+/* Zebra striping for better readability */
+tbody tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+/* Hover effect on rows */
+tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+/* Special styling for ID column */
+td:first-child {
+    font-family: 'Courier New', monospace; /* Monospace for IDs */
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Age centering */
+td:nth-child(4) {
+    text-align: center;
+}
+
+th:nth-child(4) {
+    text-align: center;
+}
+
+/* --- Right-Aligned Footer --- */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.75rem 2rem;
+    background-color: var(--bg-main); /* Match main background to blend in */
+    text-align: right;
+    border-top: 1px solid var(--border);
+}
+
+footer p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
