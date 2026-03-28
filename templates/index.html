@@ -36,6 +36,13 @@
 
             <section class="card">
                 <h2 class="card-title">System Records</h2>
+                
+                <div class="search-bar">
+                    <input type="number" id="searchId" placeholder="Search user by ID number...">
+                    <button class="btn-primary search-btn" onclick="searchUser()">Search</button>
+                    <button class="btn-secondary" onclick="resetSearch()">View All</button>
+                </div>
+
                 <div class="table-container">
                     <table id="userTable">
                         <thead>
